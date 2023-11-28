@@ -51,6 +51,15 @@ class Order
         return $this;
     }
 
+    public function __toString(): string
+    {
+        $result = "Id:" . (string) $this->id . "\n Status:" . (string) $this->status . "\nProductos:\n";
+        foreach ($this->products as $product) {
+            $result .= $product->getId() . "\n";
+        }
+        return $result;
+    }
+
     public function getStatus(): ?int
     {
         return $this->status;
@@ -104,5 +113,4 @@ class Order
 
         return $this;
     }
-
 }
